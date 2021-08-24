@@ -56,21 +56,35 @@
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center contact">
             <div class="container info">
                 <div class="row" >
-                    <form action="forms/contact.php" method="post" class="php-email-form">
+                    <form method="POST"  class="php-email-form">
                         <h2 class="mt-5 h2">Nós somos uma loja online com foco em prata 925, vamos conversar?</h2>
+                    <!--  @csrf
+                        
                         <div class="form-group mt-3">
-                            <input type="text" class="form-control" id="clientName" placeholder="Nome completo" required/>
+                            <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto" placeholder="Nome completo"/>
                         </div>
                         <div class="form-group mt-3">
-                            <input type="text" class="form-control" id="celNumber" placeholder="Número de celular | ex: 61 99999 9999" required/>
+                            <input type="text" class="form-control" id="celNumber" name="celNumber" placeholder="Número de celular | ex: 61 99999 9999"/>
                         </div>
                         <div class="my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                        </div>
-                        <div class="text-center mb-5"><button type="submit">Conversar</button></div>
+                          <div class="loading">Loading</div>
+                          <div class="error-message"></div>
+                          <div class="sent-message">Your message has been sent. Thank you!</div>
+                      </div>
+                            @if ($errors->any())
+                              @foreach ($errors->all() as $error)
+                              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <div>{{ $error }}</div>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                              </div>
+                              @endforeach
+                            @else
+                              <div class="sent-message">{{session('sucesso')}}</div>
+                            @endif
+
+                        -->
                     </form>
+                    <div class="text-center mb-5 mt-3"><a href="https://wa.me/61999874430" target="_blank"><button type="submit">Conversar</button></a></div>
                 </div>
             </div>
         </div>
